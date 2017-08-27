@@ -1,0 +1,18 @@
+
+.w3-myfont {
+  font-family: "Ariel";
+}
+
+body, html {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  background-color: #C7B3FF;
+}
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans";
+  font-style: "bold";
+}
+p {
+  font-family: "Lato";
+  font-style: "light";
+}

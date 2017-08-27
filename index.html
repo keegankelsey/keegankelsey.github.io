@@ -1,56 +1,449 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>W3.CSS Template</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <style>
-      .w3-tangerine {
-        font-family: 'Tangerine', serif;
-      }
-    </style>
-  </head>
-<body>
+    <!-- Header start -->
+    <head>
+        <title>Keegan Kelsey, Github</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Outline">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:900">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:900">
+        <style>
+            # Fonts
+            <!-- Add font process https://fontlibrary.org/en/font/process -->
+            .w3-bungee-outline {
+                font-family:'Bungee Outline', cursive;
+            }
+            .w3-bungee {
+                font-family:'Bungee Inline', cursive;
+            }
+            .w3-avenirnext-ultralight {
+                font-family:'AvenirNext-Ultralight', Sans-serif;
+            }
+            .w3-roboto-medium {
+                font-family:'Roboto', Sans-serif;
+            }
+            .w3-lato-light {
+                font-family:'Lato', Sans-serif;
+            }
+            .w3-playfair {
+                font-family: 'Playfair Display', Sans-serif;
+            }
+            # Color
+            .w3-background {
+                color:#282828 !important;
+            }
+            .w3-cyan {
+                color:#00ffff !important;
+            }
+            .w3-magenta {
+                color:#ff00ff !important;
+            }
+            .w3-yellow {
+                color:#ffff00 !important;
+            }
+            .w3-button:first-child{ 
+                background-color:#282828;color:#000
+            }
+            .w3-dropdown-hover:first-child { 
+                background-color:#ff00ff;color:#000
+            }
+            .button-hover:hover {
+                background-color:#CC58E8 !important;
+            }
+            .button-hover-light:hover {
+                background-color:#FF6E9C !important;
+            }
+            .underline-gradient {
+                background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);
+                background-repeat: no-repeat;
+                background-size: 100% 0.3em;
+                background-position: 0 88%;
+            }
+            # Position
+            .float_center {
+              position: relative;
+              left: 50%;
+            }
+        </style>
+    </head>
+    <!-- Header end -->
 
-<!-- Add a background color to the whole page -->
-<div class="w3-white">
+    <!-- Main body start -->
+    <body>
 
-<!-- Split into 1/3 2/3 -->
-<div class="w3-col w3-container w3-blue" style="width:35%">
-  <h1>KEEGAN KELSEY</h1>
-  <p class="w3-myfont">This is some info</p>
-  <p>This is some info</p>
-</div>
-<div class="w3-rest w3-container w3-green">
-  <div class="w3-container w3-purple">
-    <h1>PROJECTS</h1>
-    <p>This is some info</p>
-  </div>
-  <div class="w3-container w3-blue">
-    <h3>This is one project</h3>
-    <h6>2016-2017</h6>
-    <p>This is some info</p>
-  </div>
-  <div class="w3-container w3-yellow">
-    <h3>This is another project</h3>
-    <h6>2015-2016</h6>
-    <p>This is some info</p>
-  </div>
-  <div class="w3-container w3-pink">
-    <h3>And another project</h3>
-    <h6>2015-2016</h6>
-    <p>This is some info</p>
-  </div>
-  <div class="w3-container w3-red">
-    <h3>One more project</h3>
-    <h6>2015-2016</h6>
-    <p>This is some info</p>
-  </div>
-</div>
+        <!-- Initial header start -->
+        <nav class="w3-sidebar w3-bar-block w3-card" id="mySidebar" style="position: relative; z-index: 100; background-color:#282828; color:white;">
+            <div class="w3-container" style="height:100px">
+            </div>
+            <div class="w3-container">
+                <span onclick="closeSidebar()" class="w3-button button-hover-light w3-display-topright w3-xlarge" style="padding:20px 30px; color:white;">&#8863;</span>
+                <br>
+            </div>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#about"><font face="Roboto"><b>ABOUT</b></a>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#education"><font face="Roboto">EDUCATION</a>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#experience">EXPERIENCE</a>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#projects">PROJECTS</a>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#publications">PUBLICATIONS</a>
+            <a onclick="closeSidebar()" class="w3-bar-item w3-button button-hover-light" style="color:white;" href="#contact">CONTACT</a>
+        </nav> 
 
-<!-- End page content -->
+        <header class="w3-top w3-bar" style="background-color:#282828">
+            <button class="w3-bar-item w3-button w3-xlarge w3-left button-hover-light" style="padding:20px 30px; color:white;" onclick="openSidebar()">&#8862;</button>
+            <h1 class="w3-center" style="padding: 0 78px 0 0px; color:white;"><font face="Bungee Outline"><b><a target="_blank" style="color:white; text-decoration:none" href="https://www.keegankelsey.com/">Keegan Kelsey</a></b></h1>
+        </header>
 
-</body>
+        <!-- First body start -->
+
+        <a name="about"></a>
+
+        <!-- Initial spacer -->
+        <div class="w3-container w3-center">
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:148px">
+                </div>
+            </div>
+        </div>
+
+        <!-- First body end -->
+
+        <!-- Fa body start -->
+        <a name="About"></a>  
+
+        <div class="w3-container w3-center"> 
+
+            <div class="w3-cell-row" style="background-color: white">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; padding-bottom:5px; padding-top:5px; background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);">
+                  <h3 class="w3-playfair w3-center" style="color:white"><font face="Roboto"><b>ABOUT</b></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-button button-hover w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair" style="color:#282828">About</h3>
+                    <p class="w3-lato-light w3-background" style="font-size:18px; color:#282828">Hey Hey we're the monkees, no more monk-in around. Ba dat dat deed da dummmmm. <span class="underline-gradient">Here is some info</span>, there is some info, every where is info.</p>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+        </div>
+
+        <!-- First body end -->
+
+        <!-- Second body start -->
+        <a name="education"></a>  
+
+        <div class="w3-container w3-center">    
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:147px">
+                  <h3 class="w3-bungee-outline"></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; padding-bottom:5px; padding-top:5px; background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);">
+                  <h3 class="w3-playfair w3-center" style="color:white"><font face="Roboto"><b>EDUCATION</b></h3>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>     
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2009 - 2015<span style="float:right;">Ithaca, NY</span></p>
+                    <h3 class="w3-playfair">Cornell University<span style="color:gray"> | Ph.D.</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Field of Genetics, Genomics & Development<br>Department of Molecular Biology & Genetics<br>Biometry Minor</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2005<span style="float:right;">Chicago, IL</span></p>
+                    <h3 class="w3-playfair">The School of the Art Institute of Chicago<span style="color:gray"> | B.A.</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Visual and Critical Studies</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>
+
+        </div>
+        <!-- Second body end -->
+
+        <!-- Third body start -->
+        <a name="experience"></a>  
+
+        <div class="w3-container w3-center">    
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:147px">
+                  <h3 class="w3-bungee-outline"></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; padding-bottom:5px; padding-top:5px; background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);">
+                  <h3 class="w3-playfair w3-center" style="color:white"><font face="Roboto"><b>EXPERIENCE</b></h3>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>     
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2015 - Current<span style="float:right;">Mountain View, CA</span></p>
+                    <h3 class="w3-playfair">23andMe<span style="color:gray"> | Data Scientist</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Info here.</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2015<span style="float:right;">Palo Alto, CA</span></p>
+                    <h3 class="w3-playfair">Insight Data Science<span style="color:gray"> | Data Science Fellow</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Some info here</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2009 - 2015<span style="float:right;">Ithaca, NY</span></p>
+                    <h3 class="w3-playfair">Cornell University<span style="color:gray"> | Graduate Research Assistant</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Some info here</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <p class="w3-roboto-medium" style="font-size:16px; text-align:left;"><br>2005 - 2009<span style="float:right;">Iowa City, IA</span></p>
+                    <h3 class="w3-playfair">University of Iowa Hospital and Clinics<span style="color:gray"> | Research Assistant</span></h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Some info here</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>
+
+        </div>
+        <!-- Third body end -->
+
+        <!-- Third body start -->
+        <a name="projects"></a>  
+
+        <div class="w3-container w3-center">    
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:147px">
+                  <h3 class="w3-bungee-outline"></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; padding-bottom:5px; padding-top:5px; background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);">
+                  <h3 class="w3-playfair w3-center" style="color:white"><font face="Roboto"><b>PROJECTS</b></h3>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div>     
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">Project One</h3>
+                    <p class="w3-lato-light" style="font-size:18px;">Coming soon.</p>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+        </div>
+        <!-- Third body end -->
+
+        <!-- Fourth body start -->
+        <a name="publications"></a>  
+
+        <div class="w3-container w3-center">    
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:147px">
+                  <h3 class="w3-bungee-outline"></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; padding-bottom:5px; padding-top:5px; background-image: linear-gradient(120deg, #FFB261 0%, #FF6E9C 100%);">
+                  <h3 class="w3-playfair w3-center" style="color:white"><font face="Roboto"><b>PUBLICATIONS</b></h3>
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">2016</h3>
+                </div>
+            </div>    
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align w3-button button-hover" style="width:450px; background-color: white; white-space: normal;">
+                    <a target="_blank" style="text-decoration:none" href="https://www.ncbi.nlm.nih.gov/pubmed/26662796"><p class="w3-lato-light" style="font-size:18px;" align="justify">Chow CY, Kelsey KJ, Wolfner MF, Clark AG (2016) <b>Candidate genetic modifiers of retinitis pigmentosa identified by exploiting natural variation in Drosophila.</b> Hum Mol Genet 25(4): 651-659.</p></a>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">2013</h3>
+                </div>
+            </div>  
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align w3-button button-hover" style="width:450px; background-color: white; white-space: normal;">
+                    <a target="_blank" style="text-decoration:none" href="https://www.ncbi.nlm.nih.gov/pubmed/23018797"><p class="w3-lato-light" style="font-size:18px;" align="justify">Mann PC, Cooper ME, Ryckman KK, Comas B, Gili J, Crumley S, Bream EN, Byers HM, Piester T, Schaefer A, Christine PJ, Lawrence A, Schaa KL, Kelsey KJ, Berends SK, Momany AM, Gadow E, Cosentino V, Castilla EE, López Camelo J, Saleme C, Day LJ, England SK, Marazita ML, Dagle JM, Murray JC (2013) <b>Polymorphisms in the fetal progesterone receptor and a calcium-activated potassium channel isoform are associated with preterm birth in an Argentinian population.</b> J Perinatol 33(5): 336-340.</p></a>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">2012</h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align w3-button button-hover" style="width:450px; background-color: white; white-space: normal;">
+                    <a target="_blank" style="text-decoration:none" href="https://www.ncbi.nlm.nih.gov/pubmed/21960125"><p class="w3-lato-light" style="font-size:18px;" align="justify">Ryckman KK, Dagle JM, Kelsey K, Momany AM, Murray JC (2012) <b>Genetic associations of surfactant protein D and angiotensin-converting enzyme with lung disease in preterm neonates.</b> J Perinatol 32(5): 349-355.</p></a>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">2011</h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align w3-button button-hover" style="width:450px; background-color: white; white-space: normal;">
+                    <a target="_blank" style="text-decoration:none" href="https://www.ncbi.nlm.nih.gov/pubmed/21659962"><p class="w3-lato-light" style="font-size:18px;" align="justify">Ryckman KK, Dagle JM, Kelsey K, Momany AM, Murray JC (2011) <b>Replication of genetic associations in the inflammation, complement, and coagulation pathways with intraventricular hemorrhage in LBW preterm neonates.</b> Pediatr Res 70(1): 90-95.</p></a>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; background-color: white; white-space: normal;">
+                    <h3 class="w3-playfair">2009</h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="color:#282828; background-color: white;">
+                <div class="w3-cell w3-container w3-left-align w3-button button-hover" style="width:450px; background-color: white; white-space: normal;">
+                    <a target="_blank" style="text-decoration:none" href="https://www.ncbi.nlm.nih.gov/pubmed/19336370"><p class="w3-lato-light" style="font-size:18px;" align="justify">Dagle JM, Lepp NT, Cooper ME, Schaa KL, Kelsey KJ, Orr KL, Caprau D, Zimmerman CR, Steffen KM, Johnson KJ, Marazita ML, Murray JC (2009) <b>Determination of genetic predisposition to patent ductus arteriosus in preterm infants.</b> Pediatrics 123(4): 1116-1123.</p></a>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color:white;">
+                <div class="w3-cell w3-container" style="width:450px;"">
+                    <hr> 
+                </div>
+            </div> 
+
+        </div>
+        <!-- Fourth body end -->
+
+        <!-- Ending spacer -->
+        <div class="w3-container w3-center">
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:147px">
+                  <h3 class="w3-bungee-outline"></h3>
+                </div>
+            </div>
+
+            <div class="w3-cell-row" style="background-color: white;">
+                <div class="w3-cell w3-container w3-left-align" style="width:450px; height:50px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer start -->
+        <footer class="w3-container w3-bottom w3-theme w3-margin-top" style="background-color:#282828">
+          <h6 class="w3-center w3-large" style="color:white;"><font face="Roboto">San Francisco, CA<br><a target="_blank" style="color:white; text-decoration:none" href="https://www.linkedin.com/in/keegankelsey">LinkedIn</a> &#8901 <a target="_blank" style="color:white; text-decoration:none" href="https://github.com/keegankelsey">Github</a></h6>
+        </footer>
+        <!-- Footer end -->
+
+        <!-- Action info start-->
+        <script>
+        closeSidebar();
+        function openSidebar() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+        </script>
+        <!-- Action info end -->
+
+    </body>
+    <!-- Main body end -->
 </html>
+<!-- End doc -->

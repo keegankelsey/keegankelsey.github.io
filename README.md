@@ -1,4 +1,4 @@
-# Resume
+# Background and Project showcase
 View content at <https://keegankelsey.github.io>.
 
 -------

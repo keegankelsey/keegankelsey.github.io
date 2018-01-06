@@ -1,4 +1,4 @@
-# Background and Project showcase
+# Personal background and project showcase
 View content at <https://keegankelsey.github.io>.
 
 -------

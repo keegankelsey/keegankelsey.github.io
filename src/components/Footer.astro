@@ -1,0 +1,11 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { site } from '../site.config';
+---
+
+<footer class="border-t border-border">
+  <div class="mx-auto flex w-full max-w-2xl flex-col-reverse items-center justify-between gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:px-6">
+    <p>&copy; {new Date().getFullYear()} {site.name}</p>
+    <SocialLinks rss />
+  </div>
+</footer>

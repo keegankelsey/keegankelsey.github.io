@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
+/* Theme is toggled via [data-theme] on <html>; see ThemeToggle.astro. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  --bg: #fcfcfd;
+  --fg: #111827;
+  --muted: #6b7280;
+  --border: #e7e7ec;
+  --surface: #f4f4f7;
+  --accent: #7c3aed;
+  --mark: #e9e3ff;
+  --mark-strong: #c4b5fd;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0b0b12;
+  --fg: #e6e6ef;
+  --muted: #9a9aad;
+  --border: #23232f;
+  --surface: #14141d;
+  --accent: #a78bfa;
+  --mark: rgb(139 92 246 / 0.28);
+  --mark-strong: rgb(167 139 250 / 0.55);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-mark: var(--mark);
+}
+
+@layer base {
+  html {
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  ::selection {
+    background: var(--mark-strong);
+    color: var(--fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+/* Highlighter-marker links, inspired by manuelmoreale.com/now.
+   A two-tone band sits under the lower part of the text and slides to the stronger tone on hover. */
+.marker,
+.prose :where(p, li, td, figcaption, blockquote, .callout, details) a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--mark), var(--mark-strong));
+  background-repeat: no-repeat;
+  background-size: 300% 42%;
+  background-position: 0% 92%;
+  transition: background-position 0.45s ease, background-size 0.2s ease;
+  border-radius: 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.marker:hover,
+.prose :where(p, li, td, figcaption, blockquote, .callout, details) a:hover {
+  background-position: 100% 92%;
+  background-size: 300% 62%;
+}
+
+/* Small uppercase section label. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Long-form writing ---------- */
+.prose {
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+.prose > * + * {
+  margin-top: 1.15em;
+}
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  scroll-margin-top: 1.5rem;
+}
+.prose h2 {
+  font-size: 1.35rem;
+  margin-top: 2.2em;
+}
+.prose h3 {
+  font-size: 1.12rem;
+  margin-top: 1.8em;
+}
+.prose h4 {
+  font-size: 1rem;
+  margin-top: 1.5em;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: 0.35em;
+}
+.prose li::marker {
+  color: var(--muted);
+}
+.prose ul:has(> li > input[type='checkbox']) {
+  list-style: none;
+  padding-left: 0.2em;
+}
+.prose input[type='checkbox'] {
+  accent-color: var(--accent);
+  margin-right: 0.5em;
+}
+.prose strong {
+  font-weight: 600;
+}
+.prose blockquote {
+  border-left: 2px solid var(--mark-strong);
+  padding-left: 1.1em;
+  color: var(--muted);
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5em 0;
+}
+.prose img,
+.prose video {
+  border-radius: 8px;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+}
+.prose figure {
+  margin: 2em 0;
+}
+.prose mark {
+  background: var(--mark);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 0.15em;
+}
+/* Imported images are written as an image followed by an italic caption line. */
+.prose p:has(> img) {
+  text-align: center;
+}
+.prose p > img + em,
+.prose figcaption {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.6em;
+}
+.prose :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+}
+.prose pre {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+}
+.prose .table-wrap,
+.prose table {
+  display: block;
+  overflow-x: auto;
+}
+.prose table {
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.prose th,
+.prose td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.5em 0.8em;
+  text-align: left;
+  vertical-align: top;
+}
+.prose th {
+  font-weight: 600;
+}
+.prose .callout {
+  display: flex;
+  gap: 0.75em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9em 1.1em;
+}
+.prose .callout > .callout-icon {
+  flex: none;
+}
+.prose .callout > div > * + * {
+  margin-top: 0.6em;
+}
+.prose details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6em 1em;
+}
+.prose details > summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+.prose details[open] > summary {
+  margin-bottom: 0.6em;
+}
+
+/* Dual-theme syntax highlighting from Shiki (see astro.config.mjs). */
+.astro-code {
+  background-color: var(--surface) !important;
+}
+[data-theme='dark'] .astro-code,
+[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+}

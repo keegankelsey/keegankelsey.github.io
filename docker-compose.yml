@@ -1,0 +1,16 @@
+services:
+  site:
+    build: .
+    ports:
+      - "4321:4321"
+    volumes:
+      # Live-edit the repo from your machine...
+      - .:/site
+      # ...but keep the container's own node_modules (Linux binaries).
+      - node_modules:/site/node_modules
+    environment:
+      # Reliable file watching through Docker Desktop's file sharing (see astro.config.mjs).
+      WATCH_POLLING: "true"
+
+volumes:
+  node_modules:

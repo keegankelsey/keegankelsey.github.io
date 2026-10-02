@@ -1,0 +1,24 @@
+---
+// Google tag (gtag.js). Included by Base.astro, so every page gets it.
+// Skipped in `npm run dev` so local browsing isn't counted.
+import { site } from '../site.config';
+
+const id = site.googleAnalyticsId;
+const enabled = import.meta.env.PROD && /^G-[A-Z0-9]+$/.test(id ?? '');
+const snippet = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${id}');
+`;
+---
+
+{
+  enabled && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
+      <script is:inline set:html={snippet} />
+    </>
+  )
+}

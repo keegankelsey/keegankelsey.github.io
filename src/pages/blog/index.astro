@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate } from '../../lib/posts';
+import { site, url } from '../../site.config';
+
+const posts = await getPosts();
+const byYear = Map.groupBy(posts, (p) => p.data.date.getUTCFullYear());
+---
+
+<Base title={site.blogTitle} description="Notes on what I've been thinking about and working on.">
+  <p class="eyebrow">Blog</p>
+  <h1 class="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{site.blogTitle}</h1>
+  <p class="mt-3 text-muted">
+    Notes on what I've been thinking about and working on. Subscribe via <a class="marker" href={url('rss.xml')}>RSS</a>.
+  </p>
+
+  {posts.length === 0 && <p class="mt-12 text-muted">Nothing here yet.</p>}
+
+  {
+    [...byYear].map(([year, list]) => (
+      <section class="mt-12">
+        <h2 class="eyebrow mb-4">{year}</h2>
+        <ul class="-mx-3 space-y-1">
+          {list.map((post) => (
+            <li>
+              <a href={url(`blog/${post.id}/`)} class="group block rounded-lg px-3 py-3 transition-colors hover:bg-surface">
+                <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                  <h3 class="font-medium text-fg">
+                    <span class="bg-[linear-gradient(to_right,var(--mark),var(--mark-strong))] bg-[length:0%_42%] bg-[position:0_92%] bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_42%]">
+                      {post.data.title}
+                    </span>
+                    {post.data.draft && <span class="ml-2 rounded bg-mark px-1.5 py-0.5 font-mono text-xs">draft</span>}
+                  </h3>
+                  <time datetime={post.data.date.toISOString()} class="shrink-0 font-mono text-sm text-muted tabular-nums">
+                    {formatDate(post.data.date, 'short')}
+                  </time>
+                </div>
+                {post.data.description && <p class="mt-1 line-clamp-2 text-[0.94rem] text-muted">{post.data.description}</p>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Base>

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.env
+
+# Notion exports waiting to be imported (and the archive of imported ones)
+inbox/*
+!inbox/README.md

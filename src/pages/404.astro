@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../site.config';
+---
+
+<Base title="Not found">
+  <p class="font-mono text-sm text-muted">404</p>
+  <h1 class="mt-2 text-3xl font-semibold tracking-tight">This page doesn't exist.</h1>
+  <p class="mt-4">
+    Try the <a class="marker" href={url('/')}>home page</a> or the <a class="marker" href={url('blog/')}>blog</a>.
+  </p>
+</Base>

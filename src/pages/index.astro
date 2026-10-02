@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { Content as Bio } from '../data/bio.md';
+import { education, experience, publications } from '../data/resume';
+import { site } from '../site.config';
+
+// Minimal inline markdown for resume.ts text: [links](url) and **bold**.
+const inline = (s: string) =>
+  s
+    .replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a class="marker" href="$2">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-fg">$1</strong>');
+---
+
+<Base>
+  <Section id="about" title="About">
+    <h1 class="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{site.name}</h1>
+    <p class="mt-2 text-muted">{site.tagline} · {site.location}</p>
+    <div class="prose mt-6">
+      <Bio />
+    </div>
+    <SocialLinks class="mt-6 -ml-2" />
+  </Section>
+
+  <Section id="education" title="Education">
+    <ol class="space-y-7">
+      {
+        education.map((e) => (
+          <li class="grid gap-x-6 sm:grid-cols-[1fr_auto]">
+            <p class="font-medium">{e.school}</p>
+            <p class="order-first font-mono text-sm text-muted tabular-nums sm:order-none sm:text-right">{e.years}</p>
+            <p>{e.degree}</p>
+            {e.location && <p class="text-sm text-muted sm:text-right">{e.location}</p>}
+            {e.details?.map((d) => <p class="text-[0.94rem] text-muted sm:col-span-2">{d}</p>)}
+          </li>
+        ))
+      }
+    </ol>
+  </Section>
+
+  <Section id="experience" title="Experience">
+    <ol class="space-y-10">
+      {
+        experience.map((x) => {
+          const [current, ...previous] = x.roles;
+          return (
+            <li class="grid gap-x-6 sm:grid-cols-[1fr_auto]">
+              <p class="font-medium">{x.org}</p>
+              <p class="order-first font-mono text-sm text-muted tabular-nums sm:order-none sm:text-right">{x.years}</p>
+              <p>{current}</p>
+              {x.location && <p class="text-sm text-muted sm:text-right">{x.location}</p>}
+              {previous.length > 0 && <p class="text-[0.94rem] text-muted sm:col-span-2">Previously {previous.join(' · ')}</p>}
+              {x.summary && <p class="mt-2.5 text-[0.96rem] leading-relaxed sm:col-span-2" set:html={inline(x.summary)} />}
+            </li>
+          );
+        })
+      }
+    </ol>
+  </Section>
+
+  <Section id="publications" title="Publications">
+    <ol class="space-y-7">
+      {
+        publications.map((p) => (
+          <li class="grid gap-x-6 sm:grid-cols-[1fr_auto]">
+            <p class="font-medium">{p.url ? <a class="marker" href={p.url}>{p.title}</a> : p.title}</p>
+            <p class="order-first font-mono text-sm text-muted tabular-nums sm:order-none sm:text-right">{p.year}</p>
+            <p class="mt-1 text-[0.92rem] text-muted sm:col-span-2" set:html={inline(p.authors)} />
+            {p.venue && <p class="text-[0.92rem] text-muted italic sm:col-span-2">{p.venue}</p>}
+          </li>
+        ))
+      }
+    </ol>
+  </Section>
+</Base>
